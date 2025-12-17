@@ -1,0 +1,174 @@
+06.03 
+Comparison of build time: headers vs modules 
+
+Environment
+- Compiler: g++ 11
+- Standard: C++20
+- Optimization: -O0
+- Time measurement: /usr/bin/time -p
+- Object files built with: -c
+- Modules: -fmodules-ts
+
+
+1) 06_01.cpp + Rational.cpp (+ Rational.hpp)
+
+Building object files:
+
+/usr/bin/time -p g++ -std=c++20 -O0 -Wall -Wextra -Wpedantic -c 06_01.cpp    -o 06_01.o
+/usr/bin/time -p g++ -std=c++20 -O0 -Wall -Wextra -Wpedantic -c Rational.cpp -o Rational.o
+
+Object compilation times:
+
+- 06_01.cpp -> 06_01.o
+  real 0.65
+  user 0.38
+  sys  0.12
+
+- Rational.cpp -> Rational.o
+  real 0.42
+  user 0.35
+  sys  0.06
+
+
+Link command:
+
+/usr/bin/time -p g++ 06_01.o Rational.o -o app_normal
+
+Link time:
+
+real 0.14
+user 0.05
+sys  0.01
+
+
+File sizes:
+
+stat -c "%s %n" 06_01.o Rational.o app_normal
+
+15632 06_01.o
+8864  Rational.o
+23080 app_normal
+
+
+Totals (06_01):
+
+Total object compile time (real):
+0.65 + 0.42 = 1.07 s
+
+Total build time (compile + link, real):
+1.07 + 0.14 = 1.21 s
+
+
+
+2) rational.ixx + rational.cpp + 06_02.cpp
+
+rm -rf gcm.cache
+rm -f *.o app_mod
+mkdir -p gcm.cache
+
+
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header compare
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header iosfwd
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header cassert
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header cstdint
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header ios
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header istream
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header ostream
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header numeric
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header iostream
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -x c++-system-header cmath
+
+Header unit build times:
+
+- compare   : 0.17
+- iosfwd    : 0.03
+- cassert   : 0.01
+- cstdint   : 0.02
+- ios       : 0.88
+- istream   : 0.14
+- ostream   : 0.13
+- numeric   : 0.17
+- iostream  : 0.08
+- cmath     : 0.44
+
+Total header unit time:
+0.17 + 0.03 + 0.01 + 0.02 + 0.88 + 0.14 + 0.13 + 0.17 + 0.08 + 0.44 = 2.07 s
+
+2.2)Object files
+
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -Wall -Wextra -Wpedantic -x c++ -c rational.ixx -o rational_ifc.o
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -Wall -Wextra -Wpedantic -c rational.cpp -o rational_impl.o
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts -O0 -Wall -Wextra -Wpedantic -c 06_02.cpp -o 06_02.o
+
+Object compilation times:
+
+- rational.ixx -> rational_ifc.o
+  real 0.05
+  user 0.02
+  sys  0.00
+
+- rational.cpp -> rational_impl.o
+  real 0.17
+  user 0.12
+  sys  0.03
+
+- 06_02.cpp -> 06_02.o
+  real 0.15
+  user 0.13
+  sys  0.01
+
+Total object compile tim:
+0.05 + 0.17 + 0.15 = 0.37 s
+
+Link command:
+
+/usr/bin/time -p g++ -std=c++20 -fmodules-ts 06_02.o rational_ifc.o rational_impl.o -o app_mod
+
+Link time:
+
+real 0.16
+user 0.06
+sys  0.02
+
+
+File sizes:
+
+stat -c "%s %n" 06_02.o rational_ifc.o rational_impl.o app_mod
+
+13352 06_02.o
+3160  rational_ifc.o
+9136  rational_impl.o
+23288 app_mod
+
+Totals (06_02):
+
+Total compilation time including header units (real):
+2.07 (header units) + 0.37 (object files) = 2.44 s
+
+Total build time (compile + link, real):
+2.44 + 0.16 = 2.60 s
+
+3) Comparison and conclusions
+
+
+3.1) Full clean build time (real):
+- Normal (06_01): 1.21 s
+- Modules (06_02): 2.60 s
+
+
+3.2) Main compilation time:
+- 06_01.cpp -> 06_01.o: 0.65 s
+- 06_02.cpp -> 06_02.o: 0.15 s
+
+The main translation unit is compiled faster with modules.
+
+3,3) Link time:
+- Normal: 0.14 s
+- Modules: 0.16 s
+Almost the same.
+
+3.4) Executable size:
+- app_normal: 23080 bytes
+- app_mod   : 23288 bytes
+Difference: 208 bytes (not significant).
+
