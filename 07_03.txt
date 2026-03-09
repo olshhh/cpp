@@ -1,0 +1,24 @@
+void test(Person const &person)
+{
+    std::cout << "test : " << person.name() << '\n';
+    if (person.grade() == 10 || person.salary() > 1'000'000)
+    {
+        save(Status::success, person.id());
+    }
+    else
+    {
+        save(Status::failure, person.id());
+    }
+}
+
+Normal control flow branching:
+
+* the if / else statement
+* the logical OR operator (||): if the expression person.grade() == 10 is true, then person.salary() is not evaluated because of short-circuit evaluation
+
+Potential exception sources:
+
+* calls to person.name(), person.grade(), person.salary(), and person.id() may throw exceptions, since Person is a user-defined class
+* the function save(...) may throw an exception during execution
+* output operations with std::cout and operator<< may throw an exception, for example std::ios_base::failure
+* the comparison operators == and > may also throw exceptions if grade() and salary() return user-defined types with overloaded comparison operators
