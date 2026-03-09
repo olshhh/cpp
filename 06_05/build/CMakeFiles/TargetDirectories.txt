@@ -1,0 +1,5 @@
+/home/olga/cplusplus/06_05/build/CMakeFiles/version_a.dir
+/home/olga/cplusplus/06_05/build/CMakeFiles/version_b.dir
+/home/olga/cplusplus/06_05/build/CMakeFiles/main_app.dir
+/home/olga/cplusplus/06_05/build/CMakeFiles/edit_cache.dir
+/home/olga/cplusplus/06_05/build/CMakeFiles/rebuild_cache.dir

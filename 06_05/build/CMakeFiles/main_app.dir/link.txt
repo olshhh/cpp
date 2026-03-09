@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/main_app.dir/06_05.cpp.o -o bin/main_app  /usr/local/lib/libboost_filesystem.a /usr/local/lib/libboost_system.a /usr/local/lib/libboost_atomic.a
