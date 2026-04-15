@@ -1,0 +1,79 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1400' height='900'>
+<rect width='100%' height='100%' fill='white'/>
+<text x='700' y='30' text-anchor='middle' font-size='24'>Hash collisions vs number of hashed strings</text>
+<line x1='90' y1='820' x2='1060' y2='820' stroke='black'/>
+<line x1='90' y1='60' x2='90' y2='820' stroke='black'/>
+<line x1='90' y1='60' x2='90' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='60' x2='1060' y2='60' stroke='#dddddd'/>
+<text x='90' y='845' text-anchor='middle' font-size='12'>0</text>
+<text x='80' y='64' text-anchor='end' font-size='12'>22</text>
+<line x1='187' y1='60' x2='187' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='136' x2='1060' y2='136' stroke='#dddddd'/>
+<text x='187' y='845' text-anchor='middle' font-size='12'>10000</text>
+<text x='80' y='140' text-anchor='end' font-size='12'>19</text>
+<line x1='284' y1='60' x2='284' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='212' x2='1060' y2='212' stroke='#dddddd'/>
+<text x='284' y='845' text-anchor='middle' font-size='12'>20000</text>
+<text x='80' y='216' text-anchor='end' font-size='12'>17</text>
+<line x1='381' y1='60' x2='381' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='288' x2='1060' y2='288' stroke='#dddddd'/>
+<text x='381' y='845' text-anchor='middle' font-size='12'>30000</text>
+<text x='80' y='292' text-anchor='end' font-size='12'>15</text>
+<line x1='478' y1='60' x2='478' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='364' x2='1060' y2='364' stroke='#dddddd'/>
+<text x='478' y='845' text-anchor='middle' font-size='12'>40000</text>
+<text x='80' y='368' text-anchor='end' font-size='12'>13</text>
+<line x1='575' y1='60' x2='575' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='440' x2='1060' y2='440' stroke='#dddddd'/>
+<text x='575' y='845' text-anchor='middle' font-size='12'>50000</text>
+<text x='80' y='444' text-anchor='end' font-size='12'>11</text>
+<line x1='672' y1='60' x2='672' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='516' x2='1060' y2='516' stroke='#dddddd'/>
+<text x='672' y='845' text-anchor='middle' font-size='12'>60000</text>
+<text x='80' y='520' text-anchor='end' font-size='12'>8</text>
+<line x1='769' y1='60' x2='769' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='592' x2='1060' y2='592' stroke='#dddddd'/>
+<text x='769' y='845' text-anchor='middle' font-size='12'>70000</text>
+<text x='80' y='596' text-anchor='end' font-size='12'>6</text>
+<line x1='866' y1='60' x2='866' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='668' x2='1060' y2='668' stroke='#dddddd'/>
+<text x='866' y='845' text-anchor='middle' font-size='12'>80000</text>
+<text x='80' y='672' text-anchor='end' font-size='12'>4</text>
+<line x1='963' y1='60' x2='963' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='744' x2='1060' y2='744' stroke='#dddddd'/>
+<text x='963' y='845' text-anchor='middle' font-size='12'>90000</text>
+<text x='80' y='748' text-anchor='end' font-size='12'>2</text>
+<line x1='1060' y1='60' x2='1060' y2='820' stroke='#dddddd'/>
+<line x1='90' y1='820' x2='1060' y2='820' stroke='#dddddd'/>
+<text x='1060' y='845' text-anchor='middle' font-size='12'>100000</text>
+<text x='80' y='824' text-anchor='end' font-size='12'>0</text>
+<text x='700' y='880' text-anchor='middle' font-size='16'>Number of hashed strings</text>
+<text x='25' y='450' transform='rotate(-90 25,450)' text-anchor='middle' font-size='16'>Collisions</text>
+<polyline fill='none' stroke='#d62728' stroke-width='2' points='138.5,820 187,820 235.5,820 284,820 332.5,820 381,820 429.5,820 478,820 526.5,820 575,820 623.5,820 672,820 720.5,820 769,820 817.5,820 866,820 914.5,820 963,820 1011.5,820 1060,820'/>
+<rect x='1080' y='60' width='14' height='14' fill='#d62728'/>
+<text x='1102' y='72' font-size='14'>RSHash</text>
+<polyline fill='none' stroke='#1f77b4' stroke-width='2' points='138.5,820 187,820 235.5,820 284,820 332.5,820 381,820 429.5,820 478,820 526.5,820 575,820 623.5,820 672,820 720.5,820 769,820 817.5,820 866,820 914.5,820 963,785.455 1011.5,785.455 1060,785.455'/>
+<rect x='1080' y='85' width='14' height='14' fill='#1f77b4'/>
+<text x='1102' y='97' font-size='14'>JSHash</text>
+<polyline fill='none' stroke='#2ca02c' stroke-width='2' points='138.5,820 187,785.455 235.5,785.455 284,785.455 332.5,750.909 381,750.909 429.5,750.909 478,716.364 526.5,681.818 575,578.182 623.5,543.636 672,474.545 720.5,440 769,370.909 817.5,336.364 866,301.818 914.5,198.182 963,129.091 1011.5,129.091 1060,60'/>
+<rect x='1080' y='110' width='14' height='14' fill='#2ca02c'/>
+<text x='1102' y='122' font-size='14'>PJWHash</text>
+<polyline fill='none' stroke='#9467bd' stroke-width='2' points='138.5,820 187,785.455 235.5,785.455 284,785.455 332.5,750.909 381,750.909 429.5,750.909 478,716.364 526.5,681.818 575,578.182 623.5,543.636 672,474.545 720.5,440 769,370.909 817.5,336.364 866,301.818 914.5,198.182 963,129.091 1011.5,129.091 1060,60'/>
+<rect x='1080' y='135' width='14' height='14' fill='#9467bd'/>
+<text x='1102' y='147' font-size='14'>ELFHash</text>
+<polyline fill='none' stroke='#ff7f0e' stroke-width='2' points='138.5,820 187,820 235.5,820 284,820 332.5,820 381,820 429.5,820 478,820 526.5,820 575,820 623.5,820 672,820 720.5,820 769,820 817.5,820 866,820 914.5,820 963,785.455 1011.5,785.455 1060,785.455'/>
+<rect x='1080' y='160' width='14' height='14' fill='#ff7f0e'/>
+<text x='1102' y='172' font-size='14'>BKDRHash</text>
+<polyline fill='none' stroke='#8c564b' stroke-width='2' points='138.5,820 187,820 235.5,820 284,820 332.5,820 381,820 429.5,820 478,820 526.5,820 575,820 623.5,785.455 672,785.455 720.5,785.455 769,785.455 817.5,785.455 866,785.455 914.5,785.455 963,785.455 1011.5,785.455 1060,785.455'/>
+<rect x='1080' y='185' width='14' height='14' fill='#8c564b'/>
+<text x='1102' y='197' font-size='14'>SDBMHash</text>
+<polyline fill='none' stroke='#e377c2' stroke-width='2' points='138.5,820 187,820 235.5,820 284,820 332.5,820 381,820 429.5,820 478,820 526.5,820 575,785.455 623.5,785.455 672,785.455 720.5,785.455 769,785.455 817.5,785.455 866,785.455 914.5,785.455 963,716.364 1011.5,716.364 1060,716.364'/>
+<rect x='1080' y='210' width='14' height='14' fill='#e377c2'/>
+<text x='1102' y='222' font-size='14'>DJBHash</text>
+<polyline fill='none' stroke='#7f7f7f' stroke-width='2' points='138.5,820 187,820 235.5,820 284,820 332.5,820 381,820 429.5,820 478,820 526.5,820 575,820 623.5,820 672,820 720.5,820 769,820 817.5,820 866,820 914.5,820 963,785.455 1011.5,785.455 1060,785.455'/>
+<rect x='1080' y='235' width='14' height='14' fill='#7f7f7f'/>
+<text x='1102' y='247' font-size='14'>DEKHash</text>
+<polyline fill='none' stroke='#17becf' stroke-width='2' points='138.5,820 187,820 235.5,820 284,820 332.5,820 381,820 429.5,820 478,820 526.5,820 575,820 623.5,820 672,820 720.5,820 769,820 817.5,785.455 866,785.455 914.5,785.455 963,785.455 1011.5,785.455 1060,785.455'/>
+<rect x='1080' y='260' width='14' height='14' fill='#17becf'/>
+<text x='1102' y='272' font-size='14'>APHash</text>
+</svg>
